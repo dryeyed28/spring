@@ -1,5 +1,7 @@
 package model;
 
-public class Truck {
-
+public class Truck implements Car {
+	public void go() {
+		System.out.println("Tuck go..");
+	}
 }
