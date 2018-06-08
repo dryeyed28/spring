@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="book" class ="model.Book">
+	<property name="title">
+		<value>스프링</value>
+	</property>
+	<property name="price">
+		<value>10000</value>
+	</property>
+</bean>
+<bean id="student" class="model.Student">
+	<property name="name">
+		<value>시용태</value>
+	</property>
+	<property name="book">
+		<ref bean="book"/>
+	</property>
+</bean>
+</beans>

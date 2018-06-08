@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="D:/스프링 라이브러리/activation-1.1.jar"/>
 	<classpathentry kind="lib" path="D:/스프링 라이브러리/aopalliance-1.0.jar"/>
@@ -40,6 +41,5 @@
 	<classpathentry kind="lib" path="D:/스프링 라이브러리/transactions-api-3.6.1.jar"/>
 	<classpathentry kind="lib" path="D:/스프링 라이브러리/transactions-jdbc-3.6.1.jar"/>
 	<classpathentry kind="lib" path="D:/스프링 라이브러리/validation-api-1.0.0.GA.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

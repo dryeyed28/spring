@@ -1,0 +1,12 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="newyork" class="model.NewYorkServer"></bean>
+	<bean id="seoul" class="model.SeoulServer"></bean>
+	<bean id="manager" class="model.ServerManager">
+		<property name="server">
+			<ref bean="newyork"></ref>
+		</property>	
+	</bean>
+	</beans>

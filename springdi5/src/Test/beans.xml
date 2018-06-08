@@ -1,0 +1,51 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="school" class="model.School">
+		<property name="busMap">
+			<map>
+				<entry>
+					<key><value>one</value></key>
+					<ref bean="bus1"></ref>
+				</entry>
+				<entry>
+					<key><value>two</value></key>
+					<ref bean="bus2"></ref>
+				</entry>			
+			</map>
+		</property>
+		
+		
+		<property name="stuName">
+			<list>
+			<value>시용태</value>
+			<value>백승석</value>
+			<value>이진우</value>
+			</list>
+			</property>
+			<property name="busList">
+				<list>
+					<ref bean="bus1"></ref>
+					<ref bean="bus2"></ref>	
+				</list>
+			</property>
+	</bean>
+	
+	<bean id="bus1" class="model.Bus">
+		<constructor-arg>
+			<value>현대버스</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>25</value>
+		</constructor-arg>
+	</bean>
+	<bean id="bus2" class="model.Bus">
+		<constructor-arg>
+			<value>기아버스</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>40</value>
+		</constructor-arg>
+	</bean>
+	</beans>

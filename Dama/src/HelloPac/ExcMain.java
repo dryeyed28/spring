@@ -23,11 +23,11 @@ public class ExcMain {
 		
 		while(flag) {
 			System.out.println("메뉴");
-			System.out.println("1. 밥먹기\n2. 잠자기\n3. 운동하기\n4. 공격\ㅜ5. 종료");
+			System.out.println("1. 밥먹기\n2. 잠자기\n3. 운동하기\n4. 공격\n5. 종료");
 			x = sc.nextInt();
 			switch(x) {
 			case 1:
-				o.eat():
+				o.eat();
 				o.print();
 				break;
 			case 2:
@@ -43,7 +43,7 @@ public class ExcMain {
 				}
 				break;
 			case 4:
-				o.attack()
+				o.attack();
 				o.print();
 				if(o.energy<=0) {
 					System.out.println("게임종료");
