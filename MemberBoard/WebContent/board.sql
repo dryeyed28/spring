@@ -1,4 +1,5 @@
-drop table board
+drop table post;
+drop table board;
 drop sequence seq_board;
 
 create table board(

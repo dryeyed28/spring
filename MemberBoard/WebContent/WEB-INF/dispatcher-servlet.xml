@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <bean id="viewResolver" class ="org.springframework.web.servlet.view.InternalResourceViewResolver">
- <property name="prefix" value="/addr/"></property>
+ <property name="prefix" value="/"></property>
  <property name="suffix" value=".jsp"></property>
 </bean>
 
@@ -42,5 +42,24 @@
 	  <ref bean="memService" />
 	 </property>
 	</bean>
+	
+	<bean id="BoardDao" class="board.BoardDaoImpl">
+	 <constructor-arg>
+	  <ref bean="dataSource" />
+	 </constructor-arg>
+	</bean>
+	
+	<bean id="BoardService" class="board.BoardServiceImpl">
+	 <constructor-arg>
+	  <ref bean="BoardDao" />
+	 </constructor-arg>
+	</bean>
+	
+	<bean id="BoardController" class="board.BoardController">
+	 <property name="service">
+	  <ref bean="boardService" />
+	 </property>
+	</bean>
+	
 </beans>
 

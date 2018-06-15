@@ -20,7 +20,7 @@ public class MemController {
 		return "form";
 	}
 	
-	@RequestMapping(value = "/insert.do")
+	@RequestMapping(value = "member/insert.do")
 	public String insert(Member m) {
 		service.join(m);
 		return "login";
