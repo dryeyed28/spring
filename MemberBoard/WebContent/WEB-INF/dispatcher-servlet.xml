@@ -25,22 +25,22 @@
 		</property>
 	</bean>
 	
-	<bean class="dbTest.DaoOracleImpl" id="addrDao">
+	<bean id="memDao" class="member.DaoImpl">
 	 <constructor-arg>
 	  <ref bean="dataSource" />
 	 </constructor-arg>
 	</bean>
 	
-	<bean class="dbTest.ServiceImpl" id="addrService">
+	<bean id="memService" class="member.ServiceImpl">
 	 <constructor-arg>
-	  <ref bean="addrDao" />
+	  <ref bean="memDao" />
 	 </constructor-arg>
 	</bean>
 	
-	<bean class="dbTest.AddrController" id="addrController">
-	 <constructor-arg>
-	  <ref bean="addrService" />
-	 </constructor-arg>
+	<bean id="MemController" class="member.MemController">
+	 <property name="service">
+	  <ref bean="memService" />
+	 </property>
 	</bean>
 </beans>
 
