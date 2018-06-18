@@ -12,7 +12,7 @@ public class EventService {
 		dao = AddrDao.getDao();
 	}
 	
-	public void inset(Member m) {
+	public void insert(Member m) {
 		dao.insert(m);
 	}
 	

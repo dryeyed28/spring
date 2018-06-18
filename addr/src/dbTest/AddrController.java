@@ -42,7 +42,7 @@ public class AddrController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/edit.do");
+	@RequestMapping(value = "/edit.do")
 	public String edit(Person p) {
 		service.edit(p);
 		return "redirect:/list.do";

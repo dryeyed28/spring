@@ -15,8 +15,8 @@ Member m = (Member)request.getAttribute("m");
 <input type="hidden" name="type" value="edit">
 이름 :<input type="text" name="name" value="<%=m.getName() %>"><br>
 전화번호 :<input type="text" name="tel" value="<%=m.getTel() %>"><br>
-주소:<input type="text" name="address" value="<%=m.getAddress() %>"<br>
-우편번호 :<input type="text" name="Postal" value="<%=m.getPostal %>"><br>
+주소:<input type="text" name="address" value="<%=m.getAddress() %>"><br>
+우편번호 :<input type="text" name="Postal" value="<%=m.getPostal() %>"><br>
 
 <input type="submit" vlaue="수정">
 </form>

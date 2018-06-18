@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.datasource.DataSourceUtils;
+
 public class DaoImpl implements Dao {
 	private Connection conn;
 	private PreparedStatement pstmt = null;
@@ -18,7 +20,7 @@ public class DaoImpl implements Dao {
 	}
 	
 	public void con() {
-		conn = DataSourceUtils.getConnction(dataSource);
+		conn = DataSourceUtils.getConnection(dataSource);
 	}
 	
 	public void discon() {
