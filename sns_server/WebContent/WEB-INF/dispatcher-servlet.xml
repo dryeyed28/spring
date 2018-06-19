@@ -3,13 +3,90 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--  회원관리 컨트롤러 객체 등록 -->
+	<bean id="membercontroller" class="control.MemberController">
+ 	 <property name="service">
+  	  <ref bean="memService" />
+  	 </property>
+ 	</bean>
+ 	
+ 	<!-- 회원관리 dao 객체 등록 -->
+ 	<bean name="memDao" class="dao.MemberDao">
+ 	 <property name="dataSource" ref="dataSource" />
+ 	</bean>
+ 	
+ 	<!-- 회원관리 서비스 객체 등록 -->
+ 	<bean name="memService" class="service.MemberServiceImpl">
+ 	 <property name="dao">
+ 	  <ref bean="memDao" />
+ 	 </property>
+ 	</bean>
+ 	
+ 	<!-- validator 객체 등록 -->
+ 	<bean name="memValidator" class="validator.Membervalidator"/>
+ 	
+ 	<!-- 에러 메시지 용 메시지 객체 등록 -->
+ 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	 <property name="basenames">
+	  <list>
+	   <value>message.validation</value>
+	  </list>
+	 </property>
+	</bean>
 
-<bean id="viewResolver" class ="org.springframework.web.servlet.view.InternalResourceViewResolver">
- <property name="prefix" value="/sns/"></property>
- <property name="suffix" value=".jsp"></property>
-</bean>
-
-<bean id="dataSource"
+	<!-- 친구관리 컨트롤러 객체 등록 -->
+	<bean id="frController" class="control.FrController">
+	 <property name="fservice">
+	  <ref bean="frService" />
+	 </property>
+	 <property name="mservice">
+	  <ref bean="memService" />
+	 </property>
+	 <property name="bservice">
+	  <ref bean="boardService" />
+	 </property>
+	</bean>
+	
+	<!-- 친구관리 dao 등록 -->
+	<bean name="frDao" class="dao.FrDaoImpl">
+	 <property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 친구관리 서비스 객체 등록 -->
+	<bean name="frService" class="service.FrServiceImpl">
+	 <property name="dao">
+	  <ref bean="frDao" />
+	 </property>
+	</bean>
+	
+	<!-- 글관리 컨트롤러 객체 등록 -->
+	<bean id="boardController" class="control.BoardController">
+	 <property name="bservice">
+	  <ref bean="boardService" />
+	 </property>
+	</bean>
+	
+	<!--  글관리 dao 객체 등록 -->
+	<bean name="boardDao" class="dao.BoardDaoImpl">
+	 <property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 글관리 서비스 객체 등록 -->
+	<bean name="boardService" class="service.BoardServiceImpl">
+	 <property name="dao">
+	  <ref bean="boardDao" />
+	 </property>
+	</bean>
+	
+	<!-- 뷰 리살버 등록 -->
+	<bean id="viewResolver" class ="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ 	 <property name="prefix" value="/sns/"></property>
+ 	 <property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!-- 데이터 소스 등록 -->
+	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName">
 			<value>oracle.jdbc.driver.OracleDriver</value>
@@ -24,33 +101,6 @@
 			<value>kitri</value>
 		</property>
 	</bean>
-	
-	<bean id="memDao" class="member.OracleDao">
-	 <constructor-arg>
-	  <ref bean="dataSource" />
-	 </constructor-arg>
-	</bean>
-	
-	<bean id="memService" class="member.ServiceImpl">
-	 <constructor-arg>
-	  <ref bean="memDao" />
-	 </constructor-arg>
-	</bean>
-	
-	<bean id="MemController" class="member.MemController">
-	 <property name="service">
-	  <ref bean="memService" />
-	 </property>
-	</bean>
-	
-	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-	 <property name="basenames">
-	  <list>
-	   <value>message.validation</value>
-	  </list>
-	 </property>
-	</bean>
-	
 	
 </beans>
 
