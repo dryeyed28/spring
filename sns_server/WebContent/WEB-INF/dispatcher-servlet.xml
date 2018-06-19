@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <bean id="viewResolver" class ="org.springframework.web.servlet.view.InternalResourceViewResolver">
- <property name="prefix" value="/member/"></property>
+ <property name="prefix" value="/sns/"></property>
  <property name="suffix" value=".jsp"></property>
 </bean>
 

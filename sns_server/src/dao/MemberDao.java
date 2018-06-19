@@ -1,9 +1,12 @@
 package dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.sql.DataSource;
 
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
@@ -30,6 +33,8 @@ public class MemberDao implements SnsDao {
 	public void discon() {
 		try {
 			DataSourceUtils.releaseConnection(conn, dataSource);
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 	}
 	
